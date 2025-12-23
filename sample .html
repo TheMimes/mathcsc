@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 1 : Ensembles - Mathématiques (3ème Édition)</title>
+    <style>
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* En-tête */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c3e50, #4a6572);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #34495e;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            background-color: #3498db;
+            transform: translateY(-2px);
+        }
+        
+        /* Sections principales */
+        .chapter-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        h3 {
+            color: #3498db;
+            font-size: 1.5rem;
+            margin: 25px 0 15px;
+        }
+        
+        h4 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin: 20px 0 10px;
+        }
+        
+        /* Styles pour les définitions et exemples */
+        .definition, .example, .note, .summary {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 5px solid;
+        }
+        
+        .definition {
+            background-color: #e8f4fc;
+            border-left-color: #2980b9;
+        }
+        
+        .example {
+            background-color: #f0f7f0;
+            border-left-color: #27ae60;
+        }
+        
+        .note {
+            background-color: #fef9e7;
+            border-left-color: #f39c12;
+        }
+        
+        .summary {
+            background-color: #f4ecf7;
+            border-left-color: #8e44ad;
+        }
+        
+        /* Notation mathématique */
+        .math {
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+            font-size: 1.1em;
+            padding: 2px 5px;
+        }
+        
+        .math-inline {
+            display: inline-block;
+            margin: 0 3px;
+        }
+        
+        .math-block {
+            display: block;
+            text-align: center;
+            margin: 15px auto;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        
+        /* Tableaux */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e8f4fc;
+        }
+        
+        /* Ensembles de nombres */
+        .number-sets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .number-set {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
+            min-width: 150px;
+            text-align: center;
+        }
+        
+        /* Exercices */
+        .exercises {
+            background-color: #fff8e1;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+            border: 2px dashed #f39c12;
+        }
+        
+        .exercise {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .exercise-title {
+            color: #e67e22;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Diagrammes */
+        .diagram {
+            text-align: center;
+            margin: 25px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        .diagram-caption {
+            font-style: italic;
+            margin-top: 10px;
+            color: #7f8c8d;
+        }
+        
+        /* Pied de page */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 25px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            section {
+                padding: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .number-set {
+                min-width: 120px;
+                padding: 12px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .math-block {
+                font-size: 0.9em;
+                padding: 8px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        section {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Scroll personnalisé */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #3498db;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chapitre 1 : Ensembles</h1>
+        <p class="subtitle">Mathématiques (3ème Édition)</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#section1-1">1.1 Définition des ensembles</a></li>
+            <li><a href="#section1-2">1.2 Relations entre ensembles</a></li>
+            <li><a href="#section1-3">1.3 Opérations sur les ensembles</a></li>
+            <li><a href="#exercices">Exercices</a></li>
+            <li><a href="#summary">Résumé du chapitre</a></li>
+        </ul>
+    </nav>
+    
+    <div class="chapter-content">
+        <section id="section1-1">
+            <h2>1.1 Définition des ensembles</h2>
+            
+            <div class="definition">
+                <h3>Définition 1</h3>
+                <p>Nous appelons <strong>éléments</strong> les objets étudiés. Un <strong>ensemble</strong> est une collection bien définie d'éléments distincts.</p>
+            </div>
+            
+            <div class="example">
+                <h3>Exemples :</h3>
+                <ul>
+                    <li>{pomme, banane, pastèque} est un ensemble. La pomme, la banane et la pastèque sont des éléments de cet ensemble.</li>
+                    <li>{x | -1 < x < 3} est aussi un ensemble. Les nombres comme -½, 0, ⅔, 1 sont tous des éléments de cet ensemble.</li>
+                </ul>
+            </div>
+            
+            <h3>Caractéristiques d'un ensemble</h3>
+            <ol>
+                <li><strong>Détermination :</strong> Les éléments d'un ensemble sont clairement définis.</li>
+                <li><strong>Distinction :</strong> Les éléments d'un ensemble sont tous différents.</li>
+                <li><strong>Non-ordre :</strong> Les éléments d'un ensemble n'ont pas d'ordre spécifique.</li>
+            </ol>
+            
+            <h3>Notation</h3>
+            <p>Nous utilisons généralement les lettres majuscules <span class="math">A, B, C, ...</span> pour désigner les ensembles et les lettres minuscules <span class="math">a, b, c, ...</span> pour désigner les éléments.</p>
+            
+            <h3>Ensembles de nombres usuels</h3>
+            <div class="number-sets">
+                <div class="number-set">ℕ : Ensemble des nombres naturels</div>
+                <div class="number-set">ℤ : Ensemble des entiers</div>
+                <div class="number-set">ℤ⁺ : Ensemble des entiers positifs</div>
+                <div class="number-set">ℚ : Ensemble des rationnels</div>
+                <div class="number-set">ℝ : Ensemble des réels</div>
+            </div>
+            
+            <div class="diagram">
+                <p><strong>Relation entre les ensembles de nombres :</strong></p>
+                <div class="math-block">
+                    ℝ = ℚ ∪ {nombres irrationnels}<br>
+                    ℚ = {nombres pouvant s'écrire sous forme de fraction}<br>
+                    ℤ = {..., -3, -2, -1, 0, 1, 2, 3, ...}<br>
+                    ℕ = {0, 1, 2, 3, ...}
+                </div>
+            </div>
+            
+            <div class="definition">
+                <h3>Relation d'appartenance</h3>
+                <p>Si <span class="math">a</span> est un élément de l'ensemble <span class="math">A</span>, on dit que <span class="math">a</span> <strong>appartient</strong> à <span class="math">A</span>, noté <span class="math">a ∈ A</span>.</p>
+                <p>Si <span class="math">a</span> n'est pas un élément de <span class="math">A</span>, on dit que <span class="math">a</span> <strong>n'appartient pas</strong> à <span class="math">A</span>, noté <span class="math">a ∉ A</span>.</p>
+            </div>
+        </section>
+        
+        <section id="section1-2">
+            <h2>1.2 Relations entre ensembles</h2>
+            
+            <div class="definition">
+                <h3>Égalité d'ensembles</h3>
+                <p>Deux ensembles <span class="math">A</span> et <span class="math">B</span> sont <strong>égaux</strong> s'ils contiennent exactement les mêmes éléments, noté <span class="math">A = B</span>.</p>
+            </div>
+            
+            <div class="example">
+                <h3>Exemple :</h3>
+                <p><span class="math">{-1, 3, 6} = {3, -1, 6} = {6, -1, 3}</span></p>
+            </div>
+            
+            <div class="definition">
+                <h3>Sous-ensemble</h3>
+                <p>Un ensemble <span class="math">A</span> est un <strong>sous-ensemble</strong> d'un ensemble <span class="math">B</span> si tous les éléments de <span class="math">A</span> sont aussi des éléments de <span class="math">B</span>, noté <span class="math">A ⊆ B</span>.</p>
+            </div>
+            
+            <div class="definition">
+                <h3>Sous-ensemble propre</h3>
+                <p>Si <span class="math">A ⊆ B</span> et <span class="math">A ≠ B</span>, alors <span class="math">A</span> est un <strong>sous-ensemble propre</strong> de <span class="math">B</span>, noté <span class="math">A ⊂ B</span> ou <span class="math">A ⊊ B</span>.</p>
+            </div>
+            
+            <div class="note">
+                <h3>L'ensemble vide</h3>
+                <p>L'<strong>ensemble vide</strong>, noté ∅ ou {}, est l'ensemble qui ne contient aucun élément.</p>
+                <p>Propriété importante : L'ensemble vide est un sous-ensemble de tout ensemble : <span class="math">∅ ⊆ A</span> pour tout ensemble <span class="math">A</span>.</p>
+            </div>
+            
+            <h3>Nombre de sous-ensembles</h3>
+            <p>Un ensemble à <span class="math">n</span> éléments possède <span class="math">2^n</span> sous-ensembles et <span class="math">2^n - 1</span> sous-ensembles propres.</p>
+            
+            <div class="example">
+                <h3>Exemple :</h3>
+                <p>L'ensemble <span class="math">{a, b}</span> a 4 sous-ensembles : ∅, {a}, {b}, {a,b}.</p>
+                <p>Il a 3 sous-ensembles propres : ∅, {a}, {b}.</p>
+            </div>
+        </section>
+        
+        <section id="section1-3">
+            <h2>1.3 Opérations sur les ensembles</h2>
+            
+            <div class="definition">
+                <h3>Union d'ensembles</h3>
+                <p>L'<strong>union</strong> de deux ensembles <span class="math">A</span> et <span class="math">B</span>, notée <span class="math">A ∪ B</span>, est l'ensemble des éléments qui appartiennent à <span class="math">A</span> ou à <span class="math">B</span> (ou aux deux).</p>
+                <div class="math-block">A ∪ B = {x | x ∈ A ou x ∈ B}</div>
+            </div>
+            
+            <div class="definition">
+                <h3>Intersection d'ensembles</h3>
+                <p>L'<strong>intersection</strong> de deux ensembles <span class="math">A</span> et <span class="math">B</span>, notée <span class="math">A ∩ B</span>, est l'ensemble des éléments qui appartiennent à la fois à <span class="math">A</span> et à <span class="math">B</span>.</p>
+                <div class="math-block">A ∩ B = {x | x ∈ A et x ∈ B}</div>
+            </div>
+            
+            <div class="definition">
+                <h3>Complémentaire d'un ensemble</h3>
+                <p>Étant donné un ensemble universel <span class="math">U</span>, le <strong>complémentaire</strong> d'un ensemble <span class="math">A</span>, noté <span class="math">∁_U A</span> ou <span class="math">Aᶜ</span>, est l'ensemble des éléments de <span class="math">U</span> qui n'appartiennent pas à <span class="math">A</span>.</p>
+                <div class="math-block">∁_U A = {x ∈ U | x ∉ A}</div>
+            </div>
+            
+            <h3>Les intervalles</h3>
+            <p>Certains ensembles de nombres réels peuvent être représentés par des intervalles :</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type d'intervalle</th>
+                        <th>Notation</th>
+                        <th>Représentation ensembliste</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Intervalle fermé</td>
+                        <td class="math">[a, b]</td>
+                        <td class="math">{x | a ≤ x ≤ b}</td>
+                    </tr>
+                    <tr>
+                        <td>Intervalle ouvert</td>
+                        <td class="math">(a, b)</td>
+                        <td class="math">{x | a < x < b}</td>
+                    </tr>
+                    <tr>
+                        <td>Intervalle semi-ouvert à gauche</td>
+                        <td class="math">(a, b]</td>
+                        <td class="math">{x | a < x ≤ b}</td>
+                    </tr>
+                    <tr>
+                        <td>Intervalle semi-ouvert à droite</td>
+                        <td class="math">[a, b)</td>
+                        <td class="math">{x | a ≤ x < b}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="exercices" class="exercises">
+            <h2>Exercices du chapitre</h2>
+            
+            <div class="exercise">
+                <div class="exercise-title">Exercice 1.1</div>
+                <p>Utilisez les symboles ∈ ou ∉ pour compléter :</p>
+                <ol>
+                    <li>5 __ ℕ, -3 __ ℕ</li>
+                    <li>8 __ ℤ, 3/2 __ ℤ</li>
+                    <li>3.14 __ ℚ, √3 __ ℚ</li>
+                    <li>2 __ ℝ, π/5 __ ℝ</li>
+                </ol>
+            </div>
+            
+            <div class="exercise">
+                <div class="exercise-title">Exercice 1.2</div>
+                <p>Écrivez tous les sous-ensembles de l'ensemble {1, 3, 5, 7}. Indiquez lesquels sont des sous-ensembles propres.</p>
+            </div>
+            
+            <div class="exercise">
+                <div class="exercise-title">Exercice 1.3</div>
+                <p>Soient A = {-1, 1, 3, 5} et B = {-1, 2, 4, 6}. Calculez :</p>
+                <ol>
+                    <li>A ∪ B</li>
+                    <li>A ∩ B</li>
+                </ol>
+            </div>
+            
+            <div class="exercise">
+                <div class="exercise-title">Exercice 1.4</div>
+                <p>Soit U = {0, 2, 4, 6, 8, 10}, A = {2, 6, 8}, B = {0, 4, 6, 10}. Calculez :</p>
+                <ol>
+                    <li>∁_U A</li>
+                    <li>∁_U B</li>
+                    <li>(∁_U A) ∩ (∁_U B)</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="summary" class="summary">
+            <h2>Résumé du chapitre</h2>
+            
+            <h3>Concepts clés</h3>
+            <ul>
+                <li><strong>Ensemble :</strong> Collection d'éléments distincts et bien définis</li>
+                <li><strong>Notations :</strong> ℕ, ℤ, ℚ, ℝ pour les ensembles de nombres</li>
+                <li><strong>Appartenance :</strong> a ∈ A (a appartient à A), a ∉ A (a n'appartient pas à A)</li>
+        
